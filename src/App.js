@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Task from './components/Task/Task';
+import TaskForm from './components/TaskForm/TaskForm';
 
 class App extends Component {
   state = {
@@ -32,7 +33,9 @@ class App extends Component {
 
     return (
       <div className="App container">
+          <TaskForm />
           {taskList}
+
       </div>
     );
   }

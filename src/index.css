@@ -18,5 +18,8 @@ code {
   width: 1200px;
   min-width: 300px;
   margin: 0 auto;
-  background: #fff;
+}
+
+* {
+  box-sizing: border-box;
 }

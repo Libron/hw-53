@@ -1,44 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Задание 1
+Создать приложение - ToDo List. Внешний вид:
 
-## Available Scripts
+После ввода текста и нажатие на "Add" задача должна появляться в списке.
 
-In the project directory, you can run:
+При нажатии на иконку "Удалить" задача удаляется со страницы.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Указания:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Внешний вид произвольный. Указано лишь приблизительное расположение элементов, вы можете сделать как угодно.
 
-### `npm test`
+В программе должно быть уже несколько заранее добавленных задач.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Каждая задача должна иметь id, вы можете брать порядковый номер, либо использовать дату/время добавления как id (или еще как-нибудь).
 
-### `npm run build`
+ 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Примерный алгоритм выполнения:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Инициализируете проект
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Добавляете компонент AddTaskForm, описываете его внешний вид
 
-### `npm run eject`
+Добавляете компонент Task, описываете его внешний вид
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+В основном компоненте App инициализируете state с несколькими задачами. Задача имеет основное свойство: текст задачи. Каждая задача также имеет id.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Опишите внешний вид компонента-контейнера App и добавьте компонент AddTaskForm а также выведите все задачи с помощью компонентов Task в цикле.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Добавьте метод-обработчик события ввода текста и передайте его в AddTaskForm. Пусть этот обработчик изменяет текст в вашем состоянии, например currentTask.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Добавьте метод-обработчик события нажатия на кнопку Add и передайте его в AddTaskForm. Пусть этот обработчик берет текущий текст из currentTask и добавляет в массив всех задач новый элемент.
 
-## Learn More
+Добавьте метод-обработчик события удаления элемента и передайте его в компонент Task. Пусть он удаляет элемент из массива по переданному ID задачи.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Дополнительно:
+
+Реализуйте функционал "Задача выполнена" в виде чекбокса.

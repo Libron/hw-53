@@ -1,21 +1,19 @@
 .App h4 {
     margin: 0;
 }
-
 .task {
     background: #fff;
     width: 80%;
     margin: 10px auto;
-    padding: 15px 65px 15px 20px;
+    padding: 20px 65px 20px 20px;
+    box-shadow: 3px 2px 9px 0 rgba(255, 255, 220, 0.55);
     position: relative;
 }
-
 .buttons {
     position: absolute;
     top: 10px;
     right: 5px;
 }
-
 .btn-remove {
     width: 20px;
     height: 20px;
@@ -24,4 +22,10 @@
     border: none;
     outline: none;
     margin: 0 5px;
+}
+.done {
+    background: #00c853;
+}
+.default {
+    background: #ffa726;
 }

@@ -6,7 +6,7 @@ const TaskForm = props => (
         <label htmlFor="title">
             <input type="text" placeholder="Buy milk ..." name="title" onChange={props.currentTitle} />
         </label>
-        <button type="submit"  className="btn-add">Add Task</button>
+        <button type="submit" className="btn-add">Add Task</button>
     </form>
 );
 

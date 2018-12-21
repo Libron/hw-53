@@ -5,12 +5,12 @@ import TaskForm from './components/TaskForm/TaskForm';
 class App extends Component {
   state = {
       taskList: [
-          {title: 'Сделать это', id: 'task0'},
-          {title: 'Молоко', id: 'task1'},
-          {title: 'Dmitrii', id: 'task2'},
-          {title: 'Стиать', id: 'task3'}
+          {title: 'Купить диван', id: 'task0', status: 'default'},
+          {title: 'Выпить молоко', id: 'task1', status: 'default'},
+          {title: 'Сдать домашнее задание', id: 'task2', status: 'default'},
+          {title: 'Приготовить еду', id: 'task3', status: 'default'}
       ],
-      currentTask: ''
+      currentTask: '',
   };
 
   changeTitle = event => {
@@ -34,15 +34,28 @@ class App extends Component {
            const newID = 'task' + Math.floor(Date.now() / Math.random());
            const newTask = {
                title: this.state.currentTask,
-               id: newID
+               id: newID,
+               status: 'default'
            };
            taskList.push(newTask);
            this.setState({taskList});
        } else {
            alert('Задача не может быть пустым !');
        }
-
    };
+
+    changeStatus = index => {
+        let id = this.state.taskList.findIndex(t => t.id === index);
+        if (id !== -1) {
+            const taskList = [...this.state.taskList];
+            if (this.state.taskList[id].status === 'done') {
+                taskList[id].status = 'default';
+            } else {
+                taskList[id].status = 'done';
+            }
+            this.setState({taskList});
+        }
+    };
 
   render() {
     const taskList = this.state.taskList.map((task) => (
@@ -50,6 +63,8 @@ class App extends Component {
             text={task.title}
             key={task.id}
             remove={() => this.removeTask(task.id)}
+            status={task.status}
+            checkbox={() => this.changeStatus(task.id)}
         />
     ));
 
@@ -60,7 +75,6 @@ class App extends Component {
               submit = {event => this.addTask(event)}
           />
           {taskList}
-
       </div>
     );
   }

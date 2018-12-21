@@ -9,7 +9,12 @@ class App extends Component {
           {title: 'Молоко', id: 'task1'},
           {title: 'Dmitrii', id: 'task2'},
           {title: 'Стиать', id: 'task3'}
-      ]
+      ],
+      currentTask: ''
+  };
+
+  changeTitle = event => {
+      this.setState({currentTask: event.target.value});
   };
 
   removeTask = index => {
@@ -22,6 +27,23 @@ class App extends Component {
     }
   };
 
+   addTask = event => {
+       event.preventDefault();
+       if (this.state.currentTask) {
+           const taskList = [...this.state.taskList];
+           const newID = 'task' + Math.floor(Date.now() / Math.random());
+           const newTask = {
+               title: this.state.currentTask,
+               id: newID
+           };
+           taskList.push(newTask);
+           this.setState({taskList});
+       } else {
+           alert('Задача не может быть пустым !');
+       }
+
+   };
+
   render() {
     const taskList = this.state.taskList.map((task) => (
         <Task
@@ -33,7 +55,10 @@ class App extends Component {
 
     return (
       <div className="App container">
-          <TaskForm />
+          <TaskForm
+              currentTitle = {event => this.changeTitle(event)}
+              submit = {event => this.addTask(event)}
+          />
           {taskList}
 
       </div>
